@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "name": "Dr. Ahmed Bennani",
+        "specialty": "IA & Machine Learning",
+        "bio": "PhD en IA, 15 ans d'expérience chez Google et Microsoft. Auteur de 3 livres sur le ML.",
+        "avatar": "https://i.pravatar.cc/120?u=expert1",
+        "rating": 4.9,
+        "students": "250+"
+    },
+    {
+        "id": 2,
+        "name": "Sarah El Mansouri",
+        "specialty": "Cybersécurité",
+        "bio": "Certifiée CISSP, ancienne consultante en sécurité chez Deloitte. Spécialiste en audit et conformité.",
+        "avatar": "https://i.pravatar.cc/120?u=expert2",
+        "rating": 4.8,
+        "students": "180+"
+    },
+    {
+        "id": 3,
+        "name": "Youssef Tazi",
+        "specialty": "Architecture SI",
+        "bio": "Architecte cloud certifié AWS/Azure, 12 ans d'expérience en transformation digitale.",
+        "avatar": "https://i.pravatar.cc/120?u=expert3",
+        "rating": 4.7,
+        "students": "320+"
+    }
+]

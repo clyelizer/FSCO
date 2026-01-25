@@ -1,0 +1,8 @@
+# Bloquer l'accès direct aux fichiers PDF
+Order Deny,Allow
+Deny from all
+
+# Permettre uniquement l'accès via PHP
+<FilesMatch "\.(php)$">
+    Allow from all
+</FilesMatch>

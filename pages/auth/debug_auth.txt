@@ -1,0 +1,5 @@
+[2025-11-24 13:22:40] LOGIN ATTEMPT: Email=clyelise1@gmail.com
+[2025-11-24 13:22:40] LOGIN: User found. ID=4, Role=student
+[2025-11-24 13:22:40] LOGIN: Stored hash length=60
+[2025-11-24 13:22:40] LOGIN: Stored hash prefix=$2y$10$BQN
+[2025-11-24 13:22:40] LOGIN: password_verify result=TRUE

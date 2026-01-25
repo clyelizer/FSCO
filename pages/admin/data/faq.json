@@ -1,0 +1,22 @@
+[
+    {
+        "question": "Quels types de formations proposez-vous ?",
+        "answer": "Nous proposons des formations en Intelligence Artificielle, Cybersécurité, et Systèmes d'Information, adaptées aux besoins du marché actuel."
+    },
+    {
+        "question": "Les formations sont-elles certifiantes ?",
+        "answer": "Non, toutes nos formations ne sont pas certifiantes. Certaines visent l'acquisition de compétences pratiques spécifiques, tandis que d'autres préparent à des certifications reconnues."
+    },
+    {
+        "question": "Peut-on suivre les cours à distance ?",
+        "answer": "Oui, les cours se font en grande partie à distance pour vous offrir une flexibilité maximale."
+    },
+    {
+        "question": "Comment se déroule le suivi après une formation ?",
+        "answer": "Nous assurons un suivi personnalisé post-formation pour valider vos acquis et vous accompagner dans l'application de vos nouvelles compétences."
+    },
+    {
+        "question": "Quels sont les moyens de paiement acceptés ?",
+        "answer": "Nous acceptons les paiements par carte bancaire, espèces, Orange Money, Wave, et Cash Plus. Nos solutions sont multiples et nous trouverons le moyen le plus sûr qui vous convient."
+    }
+]

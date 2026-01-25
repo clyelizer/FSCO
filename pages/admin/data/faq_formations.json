@@ -1,0 +1,26 @@
+[
+    {
+        "question": "Quelle est la durée des formations ?",
+        "answer": "Nos formations varient de 2 semaines à 3 mois selon le programme. Chaque formation est conçue pour s'adapter à votre rythme avec des modules flexibles."
+    },
+    {
+        "question": "Les formations sont-elles certifiantes ?",
+        "answer": "Certaines de nos formations préparent à des certifications reconnues (ex: certifications en cybersécurité). D'autres délivrent une attestation de réussite FSCo."
+    },
+    {
+        "question": "Quel est le format des formations ?",
+        "answer": "Nos formations sont principalement en ligne (e-learning) avec des sessions live, des supports vidéo, des exercices pratiques et un accompagnement personnalisé."
+    },
+    {
+        "question": "Y a-t-il des prérequis pour s'inscrire ?",
+        "answer": "Les prérequis varient selon les formations. Les formations pour débutants sont accessibles sans connaissances préalables, tandis que les formations avancées peuvent nécessiter une expérience de base."
+    },
+    {
+        "question": "Puis-je obtenir un financement pour ma formation ?",
+        "answer": "Oui, nos formations sont éligibles au CPF (Compte Personnel de Formation). Nous proposons également des facilités de paiement et pouvons vous accompagner dans vos démarches administratives."
+    },
+    {
+        "question": "Quel accompagnement est proposé pendant la formation ?",
+        "answer": "Vous bénéficiez d'un tuteur dédié, d'un accès à notre plateforme 24/7, de sessions de Q&R en direct et d'un groupe d'entraide avec les autres apprenants."
+    }
+]
