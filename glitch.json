@@ -1,0 +1,12 @@
+{
+  "install": "cd Interface/whatsapp && npm install",
+  "start": "cd Interface/whatsapp && npm start",
+  "watch": {
+    "install": {
+      "include": ["Interface/whatsapp/package.json"]
+    },
+    "restart": {
+      "include": ["Interface/whatsapp/*.js"]
+    }
+  }
+}
