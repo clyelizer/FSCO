@@ -1,0 +1,173 @@
+# ====================================
+# FSCO - Configuration Apache (.htaccess)
+# Sécurité et optimisation pour InfinityFree
+# ====================================
+
+# Protection du fichier .env contre l'accès public
+<FilesMatch "^\.env">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Protection des fichiers sensibles
+<FilesMatch "\.(sql|log|md|bak|config|dist|inc|ini|sh)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Bloquer l'accès aux dossiers sensibles
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Empêcher l'accès direct aux dossiers includes et vendor
+    RewriteRule ^(includes|vendor|logs)/.*$ - [F,L]
+</IfModule>
+
+# ====================================
+# Redirection HTTPS (à décommenter si SSL activé)
+# ====================================
+# <IfModule mod_rewrite.c>
+#     RewriteEngine On
+#     RewriteCond %{HTTPS} off
+#     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# </IfModule>
+
+# ====================================
+# Configuration PHP (si supporté par InfinityFree)
+# ====================================
+
+# Taille maximale des fichiers uploadés
+php_value upload_max_filesize 200M
+php_value post_max_size 20M
+
+# Temps d'exécution
+php_value max_execution_time 300
+php_value max_input_time 300
+
+# Mémoire allouée
+php_value memory_limit 256M
+
+# Désactiver l'affichage des erreurs en production (SÉCURITÉ)
+php_flag display_errors Off
+php_flag display_startup_errors Off
+php_value error_reporting 0
+
+# Journalisation des erreurs
+php_flag log_errors On
+php_value error_log logs/php_errors.log
+
+# ====================================
+# Sécurité supplémentaire
+# ====================================
+
+# Désactiver la signature du serveur
+ServerSignature Off
+
+# Empêcher le listage des dossiers
+Options -Indexes
+
+# Interdire le parcours de répertoires
+Options -MultiViews
+
+# Protection contre l'injection de scripts
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# ====================================
+# Compression et optimisation
+# ====================================
+
+# Activer la compression Gzip
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>
+
+# ====================================
+# Mise en cache navigateur
+# ====================================
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Images
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # CSS et JavaScript
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+    
+    # Polices
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    
+    # HTML et données
+    ExpiresByType text/html "access plus 0 seconds"
+    ExpiresByType application/json "access plus 0 seconds"
+    ExpiresByType application/xml "access plus 0 seconds"
+    ExpiresByType text/xml "access plus 0 seconds"
+</IfModule>
+
+# ====================================
+# Règles de réécriture personnalisées
+# ====================================
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Forcer le trailing slash pour les URLs de dossiers
+    # RewriteCond %{REQUEST_FILENAME} !-f
+    # RewriteCond %{REQUEST_URI} !(.*)/$
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1/ [L,R=301]
+    
+    # Rediriger les anciennes URLs si nécessaire
+    # RewriteRule ^old-page\.php$ /new-page.php [R=301,L]
+</IfModule>
+
+# ====================================
+# Protection contre le hotlinking des images
+# ====================================
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Décommenter pour activer la protection hotlinking
+    # RewriteCond %{HTTP_REFERER} !^$
+    # RewriteCond %{HTTP_REFERER} !^https?://(www\.)?votre-domaine\.com [NC]
+    # RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [F,NC]
+</IfModule>
+
+# ====================================
+# Encodage UTF-8 par défaut
+# ====================================
+
+AddDefaultCharset UTF-8
+DefaultLanguage fr-FR
+
+# ====================================
+# Pages d'erreur personnalisées (optionnel)
+# ====================================
+
+# ErrorDocument 404 /pages/404.php
+# ErrorDocument 403 /pages/403.php
+# ErrorDocument 500 /pages/500.php

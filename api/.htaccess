@@ -1,0 +1,65 @@
+# FSCO API - Configuration Apache
+
+# Activer le réécriture d'URL
+RewriteEngine On
+
+# Options de sécurité
+<IfModule mod_headers.c>
+    # Empêcher le clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # Protection XSS
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # CORS (ajustez selon vos besoins)
+    Header always set Access-Control-Allow-Origin "*"
+    Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+    Header always set Access-Control-Allow-Headers "Authorization, Content-Type, X-API-Key"
+    Header always set Access-Control-Max-Age "86400"
+</IfModule>
+
+# Gérer les requêtes OPTIONS pour CORS
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ $1 [R=200,L]
+
+# Empêcher l'accès direct aux fichiers sensibles
+<FilesMatch "\.(json|log|txt)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Protéger le fichier api_keys.json
+<Files "api_keys.json">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Protéger le répertoire logs
+<Directory "logs">
+    Order Allow,Deny
+    Deny from all
+</Directory>
+
+# Activer la compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+</IfModule>
+
+# Cache pour les réponses API (ajustez selon vos besoins)
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType application/json "access plus 0 seconds"
+</IfModule>
+
+# Limiter la taille des requêtes (10MB)
+LimitRequestBody 10485760
+
+# Timeout
+Timeout 300
+KeepAlive On
+MaxKeepAliveRequests 100
+KeepAliveTimeout 5

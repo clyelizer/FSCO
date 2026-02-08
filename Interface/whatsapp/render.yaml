@@ -1,0 +1,60 @@
+services:
+  - type: web
+    name: fsco-whatsapp
+    env: node
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: PHP_API_URL
+        sync: false
+      - key: PHP_API_KEY
+        sync: false
+        generateValue: true
+      - key: AI_TYPE
+        sync: false
+        value: openai
+      - key: OPENAI_API_KEY
+        sync: false
+        generateValue: true
+      - key: OPENAI_MODEL
+        sync: false
+        value: gpt-4
+      - key: OPENAI_TEMPERATURE
+        sync: false
+        value: 0.7
+      - key: OPENAI_MAX_TOKENS
+        sync: false
+        value: 2000
+      - key: ANTHROPIC_API_KEY
+        sync: false
+        generateValue: true
+      - key: ANTHROPIC_MODEL
+        sync: false
+        value: claude-3-sonnet-20240229
+      - key: ANTHROPIC_TEMPERATURE
+        sync: false
+        value: 0.7
+      - key: ANTHROPIC_MAX_TOKENS
+        sync: false
+        value: 2000
+      - key: LOCAL_AI_URL
+        sync: false
+        value: http://localhost:11434
+      - key: LOCAL_AI_MODEL
+        sync: false
+        value: llama2
+      - key: LOCAL_AI_TEMPERATURE
+        sync: false
+        value: 0.7
+      - key: LOCAL_AI_MAX_TOKENS
+        sync: false
+        value: 2000
+      - key: PORT
+        sync: false
+        value: 3000
+      - key: AUTHORIZED_NUMBERS
+        sync: false
+        value: ""
+      - key: DEBUG
+        sync: false
+        value: false

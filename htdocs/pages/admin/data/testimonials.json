@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "name": "Marie Dubois",
+        "role": "Data Scientist, TechCorp",
+        "avatar": "https://i.pravatar.cc/60?u=marie",
+        "rating": 5,
+        "text": "Formation exceptionnelle en IA. Les formateurs sont des experts et le contenu est très pratique. J'ai pu appliquer immédiatement les concepts appris dans mon travail.",
+        "context": "Formation IA - Niveau Avancé"
+    },
+    {
+        "id": 2,
+        "name": "Thomas Martin",
+        "role": "CISO, InnovateLab",
+        "avatar": "https://i.pravatar.cc/60?u=thomas",
+        "rating": 5,
+        "text": "La formation cybersécurité m'a ouvert les yeux sur les menaces actuelles. Très pédagogique et les exercices pratiques sont excellents.",
+        "context": "Cybersécurité Avancée"
+    },
+    {
+        "id": 3,
+        "name": "Sophie Laurent",
+        "role": "Développeuse, StartUpTech",
+        "avatar": "https://i.pravatar.cc/60?u=sophie",
+        "rating": 4.5,
+        "text": "Parfait pour quelqu'un qui débute. Les formateurs prennent le temps d'expliquer et le suivi personnalisé est top.",
+        "context": "Automatisation RPA"
+    },
+    {
+        "id": 4,
+        "name": "Marc Dubois",
+        "role": "DG, TechStart SAS",
+        "avatar": "https://i.pravatar.cc/60?u=client1",
+        "rating": 5,
+        "text": "L'accompagnement IA de FSCo a transformé notre approche métier. Leur coach nous a aidés à identifier les bonnes opportunités et à implémenter des solutions concrètes.",
+        "context": "Coaching IA & Automatisation"
+    },
+    {
+        "id": 5,
+        "name": "Sophie Martin",
+        "role": "CISO, InnoCorp",
+        "avatar": "https://i.pravatar.cc/60?u=client2",
+        "rating": 5,
+        "text": "L'audit cybersécurité réalisé par FSCo a été une révélation. Leur approche méthodique et leurs recommandations pratiques nous ont permis de renforcer significativement notre sécurité.",
+        "context": "Audit & Conseil Cybersécurité"
+    }
+]

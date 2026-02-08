@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: fsco-whatsapp-service
+    env: node
+    plan: free
+    rootDir: Interface/whatsapp
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: NODE_ENV
+        value: production
+      - key: PHP_API_URL
+        sync: false
+        placeholder: "https://votre-site.com/Interface/api"
+      - key: PHP_API_KEY
+        sync: false
+        placeholder: "fsco_api_key_from_config"
+      - key: GEMINI_API_KEY
+        sync: false
+        placeholder: "votre_cle_gemini"
+      - key: AI_TYPE
+        value: "gemini"
+      - key: AUTHORIZED_NUMBERS
+        sync: false
+        placeholder: "212600000000,212611111111"

@@ -1,0 +1,78 @@
+{
+    "general": {
+        "site_title": "FSCo - Formation Suivi Conseil",
+        "contact_email": "clyelise1@gmail.com",
+        "contact_phone": "+212 698771629",
+        "contact_address": "Casablanca, Maroc"
+    },
+    "hero": {
+        "title": "FSCo - Formation Suivi Conseil",
+        "subtitle": "<p><strong>Votre partenaire pour la s&eacute;curisation num&eacute;rique, l'optimisation avec l'IA Et la formation en ligne<\/strong><\/p>",
+        "cta_primary": "Découvrir nos services",
+        "cta_secondary": "Nous contacter",
+        "background_image": "images\/hero-bg.jpg"
+    },
+    "sondage": {
+        "enabled": false,
+        "title": "🗳️ Sondage en Cours",
+        "subtitle": "Faites Évoluer Nos Services",
+        "description": "<p>Aidez-nous &agrave; adapter nos objectifs pour mieux r&eacute;pondre aux besoins r&eacute;els des particuliers et entreprises. Votre avis compte !<\/p>",
+        "participants": "20+",
+        "days_left": "15",
+        "satisfaction": "60%"
+    },
+    "theme": {
+        "primary_color": "#2563eb",
+        "secondary_color": "#1e293b",
+        "font_family": "Inter",
+        "font_size_base": "16px",
+        "font_size_headings": "3rem"
+    },
+    "pages": {
+        "formations": {
+            "title": "Nos Formations",
+            "intro": "Découvrez nos formations conçues pour vous faire progresser dans votre carrière."
+        },
+        "ressources": {
+            "title": "Nos differentes Ressources",
+            "intro": "Accédez à notre bibliothèque de documents, guides et outils pour enrichir vos connaissances."
+        },
+        "blogs": {
+            "title": "Blog & Actualités",
+            "intro": "Restez informé des dernières tendances, conseils et actualités dans le domaine de la formation et du numérique."
+        }
+    },
+    "seo": {
+        "meta_title": "FSCo - Formation Suivi Conseil",
+        "meta_description": "Votre partenaire expert en formation, suivi et conseil numérique.",
+        "og_image": "images\/hero-bg.jpg"
+    },
+    "services": [
+        {
+            "title": "Sécurisation Numérique",
+            "description": "<p>Nous mettons en place pour vous les meilleures pratiques pour prot&eacute;ger tous vos syst&egrave;mes informatiques.<\/p>\r\n<p>A cette &egrave;re o&ugrave; les cyberattaques se multiplent, Optez pour notre service.<\/p>",
+            "image": "images\/security.jpg"
+        },
+        {
+            "title": "Outils PUISSANTS et automatiques",
+            "description": "<p>Nous cr&eacute;eons et mettons en place pour vous <em><strong>les outils automatiques de derni&egrave;res g&eacute;n&eacute;rations<\/strong><\/em> qui feront les t&acirc;ches num&eacute;riques p&eacute;nibles &agrave; votre place.<br>Optez pour nos methodes et faites des <strong>&eacute;conomies en argent et en temps<\/strong>.<\/p>",
+            "image": "images\/ai.jpg"
+        },
+        {
+            "title": "Vulgarisation des Technologies",
+            "description": "<p>Suivez nous et restez &agrave; jour sur <em><strong>toutes les nouvelles technologies<\/strong><\/em>.<br>Nous rendons accessibles les outils d'IA, de s&eacute;curisation et d'automatisation &agrave; tous par nos articles,blogs,formations....<\/p>",
+            "image": "images\/education.jpg"
+        },
+        {
+            "title": "Formations en Ligne",
+            "description": "<p>Apprentissage complet, profond dans tous les principaux domaines de l'informatique, 100% en ligne.<br>Ceci accompagn&eacute; de <strong>Tests &amp; Evaluations.<\/strong><\/p>",
+            "image": "images\/education.jpg"
+        },
+        {
+            "title": "Accompagnement",
+            "description": "<p>Vous &ecirc;tes une entreprise ou un particulier voulant un suivi ?<br>Notre &eacute;quipe propose des suivis personnalis&eacute;s <strong>adapt&eacute;s &agrave; vos besoins<\/strong>.<\/p>",
+            "image": "images\/consulting.jpg"
+        }
+    ],
+    "pricing": []
+}

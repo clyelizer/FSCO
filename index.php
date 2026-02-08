@@ -6,37 +6,74 @@ header('Expires: 0');
 
 session_start();
 
-// Load site configuration
-$siteConfig = json_decode(file_get_contents('pages/admin/data/site_config.json'), true) ?? [];
+// Include database connection
+require_once __DIR__ . '/pages/admin/evaluations/includes/database.php';
 
-// Fallback defaults
-$general = $siteConfig['general'] ?? [
-    'site_title' => 'FSCo - Formation Suivi Conseil',
-    'contact_email' => 'clyelise1@gmail.com',
-    'contact_phone' => '+212 698771629',
-    'contact_address' => 'Casablanca, Maroc'
+/**
+ * Helper function to get site config from SQL
+ */
+function getSiteConfig() {
+    try {
+        $db = Database::getInstance();
+        $configs = $db->fetchAll("SELECT config_key, config_value, config_type FROM site_config");
+        
+        $result = [];
+        foreach ($configs as $config) {
+            $value = $config['config_value'];
+            // Parse based on type
+            if ($config['config_type'] === 'json') {
+                $value = json_decode($value, true) ?? [];
+            } elseif ($config['config_type'] === 'boolean') {
+                $value = filter_var($value, FILTER_VALIDATE_BOOLEAN);
+            } elseif ($config['config_type'] === 'number') {
+                $value = is_numeric($value) ? (strpos($value, '.') !== false ? floatval($value) : intval($value)) : 0;
+            }
+            $result[$config['config_key']] = $value;
+        }
+        return $result;
+    } catch (Exception $e) {
+        // Fallback to empty array if DB fails
+        error_log('Failed to load site config from SQL: ' . $e->getMessage());
+        return [];
+    }
+}
+
+// Load site configuration from SQL
+$configData = getSiteConfig();
+
+// Map config keys to structured arrays (for backward compatibility)
+$general = [
+    'site_title' => $configData['site_title'] ?? 'FSCo - Formation Suivi Conseil',
+    'contact_email' => $configData['contact_email'] ?? 'clyelise1@gmail.com',
+    'contact_phone' => $configData['contact_phone'] ?? '+212 698771629',
+    'contact_address' => $configData['contact_address'] ?? 'Casablanca, Maroc'
 ];
-$hero = $siteConfig['hero'] ?? [
-    'title' => 'FSCo - Formation Suivi Conseil',
-    'subtitle' => 'Votre partenaire pour la sécurisation numérique',
-    'cta_primary' => 'Découvrir nos services',
-    'cta_secondary' => 'Nous contacter',
-    'background_image' => 'images/hero-bg.jpg'
+$hero = [
+    'title' => $configData['hero_title'] ?? 'FSCo - Formation Suivi Conseil',
+    'subtitle' => $configData['hero_subtitle'] ?? 'Votre partenaire pour la sécurisation numérique',
+    'cta_primary' => $configData['hero_cta_primary'] ?? 'Découvrir nos services',
+    'cta_secondary' => $configData['hero_cta_secondary'] ?? 'Nous contacter',
+    'background_image' => $configData['hero_background_image'] ?? 'images/hero-bg.jpg'
 ];
-$theme = $siteConfig['theme'] ?? [
-    'primary_color' => '#2563eb',
-    'secondary_color' => '#1e293b',
-    'font_family' => 'Inter',
-    'font_size_base' => '16px',
-    'font_size_headings' => '2rem'
+$theme = [
+    'primary_color' => $configData['theme_primary_color'] ?? '#2563eb',
+    'secondary_color' => $configData['theme_secondary_color'] ?? '#1e293b',
+    'font_family' => $configData['theme_font_family'] ?? 'Inter',
+    'font_size_base' => $configData['theme_font_size_base'] ?? '16px',
+    'font_size_headings' => $configData['theme_font_size_headings'] ?? '2rem'
 ];
-$seo = $siteConfig['seo'] ?? [
-    'meta_title' => $general['site_title'],
-    'meta_description' => 'Formation, Suivi et Conseil en informatique.',
-    'og_image' => $hero['background_image']
+$seo = [
+    'meta_title' => $configData['meta_title'] ?? $general['site_title'],
+    'meta_description' => $configData['meta_description'] ?? 'Formation, Suivi et Conseil en informatique.',
+    'og_image' => $configData['og_image'] ?? $hero['background_image']
 ];
-$sondage = $siteConfig['sondage'] ?? ['enabled' => true];
-$services = $siteConfig['services'] ?? [];
+$sondage = [
+    'enabled' => $configData['sondage_enabled'] ?? false,
+    'title' => $configData['sondage_title'] ?? '',
+    'subtitle' => $configData['sondage_subtitle'] ?? '',
+    'description' => $configData['sondage_description'] ?? ''
+];
+$services = $configData['services'] ?? [];
 ?>
 <!DOCTYPE html>
 <html lang="fr">
