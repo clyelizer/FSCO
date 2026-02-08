@@ -12,8 +12,12 @@ services:
       - key: NODE_ENV
         value: production
       - key: PHP_API_URL
+        value: https://votre-site.com/Interface/api
       - key: PHP_API_KEY
+        value: fsco_api_key_from_config
       - key: GEMINI_API_KEY
+        value: "votre_cle_gemini"
       - key: AI_TYPE
         value: gemini
       - key: AUTHORIZED_NUMBERS
+        value: "212600000000"
