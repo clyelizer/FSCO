@@ -9,7 +9,7 @@ require_once __DIR__ . '/../pages/admin/evaluations/includes/database.php';
 define('WHATSAPP_SERVICE_URL', 'https://fsco-whatsapp.onrender.com'); // Changez cette URL après déploiement
 
 // Clé API pour communiquer avec le service WhatsApp
-define('WHATSAPP_API_KEY', 'fsco_change_this_to_secure_key');
+define('WHATSAPP_API_KEY', 'fsco_wa_secure_k3y_2026_Xz9Lm');
 
 // URL de l'API FSCO
 define('FSCO_API_URL', 'https://fsco.gt.tc/api');
