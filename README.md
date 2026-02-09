@@ -42,18 +42,25 @@ FSCo est née de la volonté d'offrir une solution robuste de **Formation, Suivi
     - Si vous avez des données dans les anciens fichiers JSON, exécutez le script : `php database/migrate_json_to_sql.php`.
     - Une fois terminé, le dossier `htdocs/pages/admin/data/` peut être supprimé.
 
-### 2. Déploiement du Service WhatsApp (Render / Railway)
+### 2. Déploiement du Service WhatsApp (Replit - Recommandé)
 
-1.  **Hébergement Node.js** :
-    - Poussez le dossier `Interface/whatsapp/` sur un repository GitHub séparé ou déployez-le directement.
-    - Sur Render/Railway, créez un **Web Service**.
-2.  **Variables d'Environnement (Secrets)** :
-    - `PHP_API_URL` : L'URL de votre API de site (ex: `https://fsco.gt.tc/Interface/api`).
-    - `PHP_API_KEY` : La clé configurée dans `Interface/config.php` (clé de liaison).
-    - `GEMINI_API_KEY` : Votre clé Google AI Studio.
-    - `AUTHORIZED_NUMBERS` : Les numéros autorisés à commander l'agent (format international).
-3.  **Premier Lancement** :
-    - Scannez le QR Code généré dans les logs du service via WhatsApp ("Appareils connectés").
+1.  **Création du Repl** :
+    - Aller sur [replit.com](https://replit.com) et créer un compte.
+    - Cliquer sur **"+ Create Repl"** -> **"Import from GitHub"**.
+    - Coller l'URL du repository : `https://github.com/clyelizer/FSCO`.
+2.  **Configuration des Secrets (Variables d'environnement)** :
+    - Dans Replit, aller dans l'onglet **Tools** -> **Secrets** (cadenas).
+    - Ajouter les clés suivantes :
+        - `PORT` = `3000`
+        - `PHP_API_URL` = `https://fsco.gt.tc/Interface/api`
+        - `PHP_API_KEY` = `fsco_wa_secure_k3y_2026_Xz9Lm` (Idem que dans `Interface/config.php`)
+        - `GEMINI_API_KEY` = `AIzaSy...` (Votre clé Gemini)
+        - `AI_TYPE` = `gemini`
+        - `AUTHORIZED_NUMBERS` = `212698771629`
+3.  **Lancement** :
+    - Cliquer sur le bouton vert **"Run"**.
+    - Surveiller la **Console** (à droite) pour voir le QR Code WhatsApp apparaître.
+    - Scanner le QR Code avec votre téléphone (WhatsApp -> Appareils connectés).
 
 ---
 
