@@ -2,7 +2,7 @@ run = "cd Interface/whatsapp && npm install && npm start"
 entrypoint = "Interface/whatsapp/index.js"
 
 [nix]
-channel = "stable-23_11"
+channel = "stable-24_05"
 
 [deployment]
 run = ["sh", "-c", "cd Interface/whatsapp && npm start"]
